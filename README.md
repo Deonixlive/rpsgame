@@ -1,4 +1,4 @@
-# rpsgame
+# rpsgame.py
 A project which was guided by FHNW Windisch-Brugg and SjF (Schweizer Jugend forscht)
 
 
