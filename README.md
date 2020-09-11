@@ -1,4 +1,9 @@
 # rpsgame
+A project which was guided by FHNW Windisch-Brugg and SjF (Schweizer Jugend forscht)
+
+
+There are three states "R" = Rock, "P" = Paper, "S" = Scissor
+
 Playing RPS against an AI 
 
 
@@ -16,4 +21,22 @@ It also contains a few variables you can change such as:
 You can also remove pygame.FULLSCREEN at the bottom of the script to execute the game in windowed mode.
 
 Close and open the script to restart a game.
+
+#game.py
+game.py uses Markov chains to predict the player's next move. 
+
+It has two classes. A Mc(Markov chain) class and a selector class.
+
+To use game.py you only need to create an object with Selector(number_of_markov_chains=5, focus_length=5)
+
+For example:
+ai = Selector()
+
+To predict the players mext moves use:
+ai.turn()  //Prediction will be random if you dont update after a player move
+
+update with:
+ai.update(playermove) //Must be one of the states
+
+      
 
