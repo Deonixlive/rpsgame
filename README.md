@@ -29,6 +29,9 @@ It has two classes. A Mc(Markov chain) class and a selector class.
 
 To use game.py you only need to create an object with Selector(number_of_markov_chains=5, focus_length=5)
 
+
+focus_length is an interger that looks at the past results. It sets the length to look for the past moves 
+
 For example:
 ai = Selector()
 
