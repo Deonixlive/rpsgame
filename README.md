@@ -22,7 +22,7 @@ You can also remove pygame.FULLSCREEN at the bottom of the script to execute the
 
 Close and open the script to restart a game.
 
-#game.py
+# game.py
 game.py uses Markov chains to predict the player's next move. 
 
 It has two classes. A Mc(Markov chain) class and a selector class.
