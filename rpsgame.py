@@ -141,23 +141,27 @@ def text_to_screen(screen, text, x, y, size = 20,
     text = font.render(text, True, color)
     screen.blit(text, (x, y))
 
-
+def clickhandle(x,y,w,h,action=None):
+    mouse = pygame.mouse.get_pos()
+    if x+w > mouse[0] > x and y+h > mouse[1] > y:    
+        pygame.draw.rect(screen, white, (x, y, w, h))
+        action()   
     
     
-def button(msg,x,y,w,h,ic,ac,action=None):
+def button(msg, x, y, w, h, ic, ac, action=None):
     x = r(x)
     y = r(y)
     w = r(w)
     h = r(h)
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
-    pygame.draw.rect(screen, ic,(x,y,w,h))
+    pygame.draw.rect(screen, ic ,(x, y, w, h))
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
-        pygame.draw.rect(screen, ac,(x,y,w,h))
+        pygame.draw.rect(screen, ac, (x, y, w, h))
 
-        if click[0] == 1 and (action != None):
-            pygame.draw.rect(screen, white,(x,y,w,h))
-            action()         
+        # if click[0] == 1 and (action != None):
+        #     pygame.draw.rect(screen, white, (x, y, w, h))
+        #     action()         
     #else:
      #   pygame.draw.rect(screen, ic,(x,y,w,h))
 
@@ -165,6 +169,8 @@ def button(msg,x,y,w,h,ic,ac,action=None):
     textSurf, textRect = text_objects(msg, smallText)
     textRect.center = ( r((x+(w/2))), (r(y+(h/2))))
     screen.blit(textSurf, textRect)
+
+
     
 def game_loop():
     gameExit = False
@@ -212,8 +218,27 @@ def update(dt):
         if event.type == QUIT:
             pygame.quit() # Opposite of pygame.init
             sys.exit() # Not including this line crashes the script on Windows. Possibly
+        if event.type == KEYDOWN:
+            if event.key == K_q:
+                pygame.quit() # Opposite of pygame.init
+                sys.exit() # Not including this line crashes the script on Windows. Possibly
+            if event.key == K_r or event.key == K_1:
+                rockpress()
+            if event.key == K_p or event.key == K_2:
+                paperpress()
+            if event.key == K_s or event.key == K_3:
+                scissorpress()
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            clickhandle(rockbuttonpos[0],rockbuttonpos[1],rockbuttonsize[0],rockbuttonsize[1],rockpress)
+            clickhandle(paperbuttonpos[0],paperbuttonpos[1],paperbuttonsize[0],paperbuttonsize[1],paperpress)
+            clickhandle(scissorbuttonpos[0],scissorbuttonpos[1],scissorbuttonsize[0],scissorbuttonsize[1],scissorpress)
+            
+
+        # if event.typ
       # on other operating systems too, but I don't know for sure.
     # Handle other events as you wish.
+
 def draw(screen):
     screen.fill((0, 0, 0)) # Fill the screen with black.
     
@@ -229,7 +254,7 @@ def draw(screen):
     drawpos1()
     drawpos2()
     drawpos3()
-    pygame.display.flip()
+    
    # screen.blit(rockimg, (x,y))
     
   # Redraw screen here.
@@ -262,8 +287,10 @@ def runPyGame():
 
         
 
-        update(dt) # You can update/draw here, I've just moved the code for neatness.
+        
         draw(screen)
+        update(dt) # You can update/draw here, I've just moved the code for neatness.
+        pygame.display.flip()
         
         
         
