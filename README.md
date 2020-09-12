@@ -20,7 +20,7 @@ It also contains a few variables you can change such as:
 
 Setting the size of the window. (In pixels)
 
-      > size = (x, y)  
+     > size = (x, y)  
 Setting the FPS
 
      > fps = 30
@@ -39,17 +39,21 @@ To use game.py you only need to create an object with Selector(number_of_markov_
 
 focus_length is an interger that looks at the past results. It sets the length to look for the past moves 
 
+You first need to import this with:
+
+> import game
+
 For example:
 
-ai = Selector()
+> ai = game.Selector()
 
 To predict the players mext moves use:
 
-ai.turn()  //Prediction will be random if you dont update after a player move
+> ai.turn()  #Prediction will be random if you dont update after a player move
 
 update with:
 
-ai.update(playermove) //Must be one of the states
+> ai.update(playermove) #Must be one of the states ("R","P" or "S")
 
       
 
