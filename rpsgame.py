@@ -3,15 +3,12 @@
 
 # In[1]:
 
-
+import sys
 import pygame
 from pygame.locals import *
 import game
 
 global aiwins,ties,playerwins
-R = True
-S = True
-P = True
 global pos1image
 outcome = 0
 aimove = None
@@ -48,14 +45,7 @@ sizemiddle = (25,20)
 def adjust_size(image,scale):
     unround = relatg(scale[0],scale[1])
     return pygame.transform.scale(image, (r(unround[0]),r(unround[0])))
-  
-
-#Loading images of ki(v)w(y)is
-#kiwi = pygame.image.load("assets/kiwi.gif")
-
-
-
-    
+      
 ai = game.Selector(7,5)
     
 aiwins = 0
@@ -88,8 +78,6 @@ def scissorpress():
     gameround("S")
     
     
-
-
 #pos of buttons
 paperbuttonsize = relatg(23.3,10)
 rockbuttonsize = relatg(23.3,10)
@@ -130,7 +118,6 @@ def message_display(text):
     TextRect.center = ((size[0]/2),(size[1]/2))
     screen.blit(TextSurf, TextRect)
     
-
     pygame.display.update()
     
 def text_to_screen(screen, text, x, y, size = 20,
@@ -158,12 +145,6 @@ def button(msg, x, y, w, h, ic, ac, action=None):
     pygame.draw.rect(screen, ic ,(x, y, w, h))
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
         pygame.draw.rect(screen, ac, (x, y, w, h))
-
-        # if click[0] == 1 and (action != None):
-        #     pygame.draw.rect(screen, white, (x, y, w, h))
-        #     action()         
-    #else:
-     #   pygame.draw.rect(screen, ic,(x,y,w,h))
 
     smallText = pygame.font.SysFont("comicsansms",20)
     textSurf, textRect = text_objects(msg, smallText)
@@ -201,12 +182,6 @@ def drawpos3():
         screen.blit(adjust_size(paperimg,sizeside), relatg(pos3[0],pos3[1])) 
     elif aimove == "S":
         screen.blit(adjust_size(scissorimg,sizeside), relatg(pos3[0],pos3[1]))        
-# PyGame template.
- 
-# Import standard modules.
-import sys
- 
-# Import non-standard modules.
 
 def update(dt):
 
@@ -234,11 +209,6 @@ def update(dt):
             clickhandle(paperbuttonpos[0],paperbuttonpos[1],paperbuttonsize[0],paperbuttonsize[1],paperpress)
             clickhandle(scissorbuttonpos[0],scissorbuttonpos[1],scissorbuttonsize[0],scissorbuttonsize[1],scissorpress)
             
-
-        # if event.typ
-      # on other operating systems too, but I don't know for sure.
-    # Handle other events as you wish.
-
 def draw(screen):
     screen.fill((0, 0, 0)) # Fill the screen with black.
     
@@ -270,16 +240,7 @@ def runPyGame():
   # Set up the clock. This will tick every frame and thus maintain a relatively constant framerate. Hopefully.
     fps = 30
     fpsClock = pygame.time.Clock()
-  
-  # Set up the window.
 
-
-
-  
-  # screen is the surface representing the window.
-  # PyGame surfaces can be thought of as screen sections that you can draw onto.
-  # You can also draw surfaces onto other surfaces, rotate surfaces, and transform surfaces.
-  
   # Main game loop.
     dt = 1/fps # dt is the time since last frame.
 
@@ -298,19 +259,9 @@ def runPyGame():
         dt = fpsClock.tick(fps)
     
     
-        
-     
-
-
-# In[2]:
-
 
 runPyGame()
   
-
-
-# In[ ]:
-
 
 
 
