@@ -47,7 +47,7 @@ For example:
 
 > ai = game.Selector()
 
-To predict the players mext moves use:
+To predict the players next move use:
 
 > ai.turn()  #Prediction will be random if you dont update after a player move
 
