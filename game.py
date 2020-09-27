@@ -116,10 +116,14 @@ def winner(playerg, aig):
         return "3"
     elif (playerg == "R" and aig=="S") or (playerg=="P" and aig=="R") or (playerg=="S" and aig=="P"):
         return "2"
-    else:
+    elif (playerg == "S" and aig=="R") or (playerg=="R" and aig=="P") or (playerg=="P" and aig=="S"):
         return "1"
+    else:
+        return "4"
     
     
+
+
 
 
 
@@ -164,7 +168,7 @@ class Selector():
             elif result == "3":
                 self.chart[x].append(0)
                 
-#pickes the AI which had the most score in the last f(focus) rounds. Uses the f newst scores from each AI in the chart     
+#picks the AI which had the most score in the last f(focus) rounds. Uses the f newst scores from each AI in the chart     
     def pickai(self):
 #calculating sums        
         self.sums = {}
