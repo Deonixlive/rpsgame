@@ -20,10 +20,10 @@ It also contains a few variables you can change such as:
 
 Setting the size of the window. (In pixels)
 
-     > size = (x, y)  
+      size = (x, y)  
 Setting the FPS
 
-     > fps = 30
+      fps = 30
 
 You can also remove pygame.FULLSCREEN at the bottom of the script to execute the game in windowed mode.
 
@@ -41,19 +41,19 @@ focus_length is an interger that looks at the past results. It sets the length t
 
 You first need to import this with:
 
-> import game
+      import game
 
 For example:
 
-> ai = game.Selector()
+      ai = game.Selector()
 
 To predict the players next move use:
 
-> ai.turn()  #Prediction will be random if you dont update after a player move
+      ai.turn()  #Prediction will be random if you dont update after a player move
 
 update with:
 
-> ai.update(playermove) #Must be one of the states ("R","P" or "S")
+      ai.update(playermove) #Must be one of the states ("R","P" or "S")
 
       
 
