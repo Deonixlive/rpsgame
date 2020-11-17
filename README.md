@@ -1,5 +1,5 @@
 # rpsgame.py
-A project which was guided by FHNW Windisch-Brugg and [SjF](https://sjf.ch/studienwoche-fascinating-informatics/) (Schweizer Jugend forscht)
+A project which was guided by FHNW Windisch-Brugg and [SjF](https://sjf.ch/review-studienwoche-fascinating-informatics-2020/) (Schweizer Jugend forscht)
 
 
 There are three states "R" = Rock, "P" = Paper, "S" = Scissor
