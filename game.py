@@ -1,16 +1,16 @@
 #We construct a markov chain 2nd order.
 
-"""an order 2 transition matrix looks like this:
+"""order 2 transition matrix looks like this:
     
-                combination of the last n-th (2) order picks
-next pick      RR RP RS PR PP PS SR SP SS
+               
+               RR RP RS PR PP PS SR SP SS
 Rock         [[0, 0, 0, 0, 0, 0, 0, 0, 0],
 Paper         [0, 0, 0, 0, 0, 0, 0, 0, 0],
 Scissors      [0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 """
 import itertools
-#import numpy as np
+import numpy as np
 import random
 
 #bulding blocks of all states, R = rock, P = paper, S = scissor
@@ -110,7 +110,7 @@ class Mc():
 def winner(playerg, aig):
 #deciding who wins, takes "R","P" or "S" as the choice of both players as input
     if type(playerg)!=type("") or type(aig)!=type(""):
-        return "Error! type not str!"
+        print("Error! type not str!")
        
     if playerg == aig:
         return "3"
@@ -120,6 +120,11 @@ def winner(playerg, aig):
         return "1"
     else:
         return "4"
+    
+    
+
+
+
 
 
 """
