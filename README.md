@@ -7,11 +7,11 @@ There are three states "R" = Rock, "P" = Paper, "S" = Scissor
 Playing RPS against an AI 
 
 ## Dependencies:
-- Needs Python 3 (verified to work with Python 3.6)
+- Python 3 (verified to work with Python 3.6)
 
-- Needs pygame
+- kivy
 
-- Needs numpy
+- numpy
 
 
 **To start a game just execute rpsgame.py**
